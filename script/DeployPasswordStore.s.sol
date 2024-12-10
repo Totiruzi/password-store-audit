@@ -8,6 +8,7 @@ contract DeployPasswordStore is Script {
     function run() public returns (PasswordStore) {
         vm.startBroadcast();
         PasswordStore passwordStore = new PasswordStore();
+        passwordStore.setPassword("secretePassword");
         vm.stopBroadcast();
         return passwordStore;
     }

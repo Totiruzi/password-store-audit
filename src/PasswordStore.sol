@@ -8,11 +8,23 @@ pragma solidity 0.8.18; // q is this the correct version?
  * You can update your password at any time.
  */
 contract PasswordStore {
+    /**
+     * ERRORS
+     */
     error PasswordStore__NotOwner();
 
+    /**
+     * STATE VARIABLE
+     */
+
     address private s_owner;
+    // @audit the s_password is not indeed private! This is not a secure place to store your password
+    // All data on chain is actually public data.
     string private s_password;
 
+    /**
+     * EVENTS
+     */
     event SetNetPassword();
 
     constructor() {
@@ -34,6 +46,7 @@ contract PasswordStore {
 
     /*
      * @notice This allows only the owner to retrieve the password.
+     // @audit There is no newPassword parameter
      * @param newPassword The new password to set.
      */
     function getPassword() external view returns (string memory) {
