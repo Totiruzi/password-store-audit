@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+pragma solidity 0.8.18; // q is this the correct version?
 
 /*
  * @author not-so-secure-dev
@@ -23,6 +23,10 @@ contract PasswordStore {
      * @notice This function allows the owner to set a new password.
      * @param newPassword The new password to set.
      */
+    // q can non-owner be able to set the password?
+    // q should a non-owner be able to set the password?
+    // @audit any user can set the password.
+    // missing access control
     function setPassword(string memory newPassword) external {
         s_password = newPassword;
         emit SetNetPassword();
