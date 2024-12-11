@@ -1,4 +1,4 @@
-### [S-#] Storing the password on-chain is visible to everyone, it's no longer private.
+### [H1-#] Storing the password on-chain is visible to everyone, it's no longer private.
 
 **Description:** All data stored on-chain is visible to anyone and can be read directly from the blockchain. The `PasswordStor::s_password` variable is intended to be private variable and can only be retrieved by the owner calling the `PasswordStore::getPassword` function on the contract.
 
@@ -49,7 +49,7 @@ secretePassword
 **Recommended Mitigation:** Due to this, thr overall architecture should be rethought. One could encrypt the password off-chain, and the store the encrypted password on-chain. This will require the user to remember another password off-chain to decrypt the password. However you would also want to remove the view function as you wn't want the user to accidentally send a transaction with the password that decrypt your password
 
 
-### [S-#] `PasswordStore::setPassword` has no access control, meaning a non-owner could change the password.
+### [H2-#] `PasswordStore::setPassword` has no access control, meaning a non-owner could change the password.
 
 **Description:** The `PasswordStore::setPassword`  function is an `external` function. However, the natspec of the function and overall purpose of the smart contract is that `The function allows only the owner to set a new password.`
 
@@ -93,7 +93,7 @@ secretePassword
 ```
 
 
-### [S-#] Incorrect NatSpec for `PasswordStore::getPassword` function
+### [NC-#] Incorrect NatSpec for `PasswordStore::getPassword` function
 
 **Description:** The `PasswordStore::getPassword` function has an incorrect NatSpec comment for its parameter.
 

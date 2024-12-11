@@ -12,3 +12,9 @@
 **Proof of Concept:**
 
 **Recommended Mitigation:** 
+
+
+## Likelihood & Impact:
+- Impact: High / Medium / Low / None
+- Likelihood: High / Medium / Low / None
+- Severity: Critical /High / Medium / Low / None (Informational / Gas /Non-Critical)
